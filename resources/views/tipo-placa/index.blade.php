@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Multa
+    Tipo Placa
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Multa') }}
+                                {{ __('Tipo Placa') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('multas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('tipo-placas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -35,39 +35,25 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-
-										<th>Serie</th>
-										<th>Lugar</th>
-										<th>Fecha</th>
-										<th>Articulo</th>
-										<th>Monto Multa</th>
-										<th>Conductor</th>
-										<th>Elemento</th>
-										<th>Vehiculo</th>
-										<th>Usuario</th>
+                                        
+										<th>Tipo</th>
+										<th>Descripcion</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($multas as $multa)
+                                    @foreach ($tipoPlacas as $tipoPlaca)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-
-											<td>{{ $multa->serie }}</td>
-											<td>{{ $multa->lugar }}</td>
-											<td>{{ $multa->fecha }}</td>
-											<td>{{ $multa->articulo }}</td>
-											<td>{{ $multa->monto_multa }}</td>
-											<td>{{ $multa->persona->nombre }}</td>
-											<td>{{ $multa->elemento->nombre_elemento}}</td>
-											<td>{{ $multa->vehiculo->placa }}</td>
-											<td>{{ $multa->usuario->nombre_usuario }}</td>
+                                            
+											<td>{{ $tipoPlaca->tipo }}</td>
+											<td>{{ $tipoPlaca->descripcion }}</td>
 
                                             <td>
-                                                <form action="{{ route('multas.destroy',$multa->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('multas.show',$multa->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('multas.edit',$multa->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('tipo-placas.destroy',$tipoPlaca->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo-placas.show',$tipoPlaca->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tipo-placas.edit',$tipoPlaca->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -80,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $multas->links() !!}
+                {!! $tipoPlacas->links() !!}
             </div>
         </div>
     </div>

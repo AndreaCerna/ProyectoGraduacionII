@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+                                        <th>Tipo de Placa</th>
 										<th>Placa</th>
 										<th>Marca</th>
 										<th>Color</th>
@@ -49,7 +49,8 @@
                                     @foreach ($vehiculos as $vehiculo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $vehiculo->TipoPlaca->tipo}}</td>
 											<td>{{ $vehiculo->placa }}</td>
 											<td>{{ $vehiculo->marca }}</td>
 											<td>{{ $vehiculo->color }}</td>

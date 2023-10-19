@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Multa;
 use App\Models\Elemento;
+use App\Models\Persona;
 use App\Models\Vehiculo;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
@@ -25,8 +26,8 @@ class MultaController extends Controller
         $elemento = Elemento::pluck('nombre_elemento', 'id');
         $vehiculo = Vehiculo::pluck('placa', 'id');
         $usuario = Usuario::pluck('nombre_usuario', 'id');
-
-        return view('multa.index', compact('multas','elemento','vehiculo','usuario'))
+        $persona = Persona::pluck('nombre', 'id');
+        return view('multa.index', compact('multas','elemento','vehiculo','usuario','persona'))
             ->with('i', (request()->input('page', 1) - 1) * $multas->perPage());
     }
 
@@ -41,7 +42,8 @@ class MultaController extends Controller
         $elemento = Elemento::pluck('nombre_elemento', 'id');
         $vehiculo = Vehiculo::pluck('placa', 'id');
         $usuario = Usuario::pluck('nombre_usuario', 'id');
-        return view('multa.create', compact('multa','elemento','usuario','vehiculo'));
+        $persona = Persona::pluck('nombre', 'id');
+        return view('multa.create', compact('multa','elemento','usuario','vehiculo','persona'));
     }
 
     /**
@@ -72,8 +74,8 @@ class MultaController extends Controller
         $elemento = Elemento::pluck('nombre_elemento', 'id');
         $vehiculo = Vehiculo::pluck('placa', 'id');
         $usuario = Usuario::pluck('nombre_usuario', 'id');
-
-        return view('multa.show', compact('multa','vehiculo','elemento','usuario'));
+        $persona = Persona::pluck('nombre', 'id');
+        return view('multa.show', compact('multa','vehiculo','elemento','usuario','persona'));
     }
 
     /**
@@ -88,8 +90,8 @@ class MultaController extends Controller
         $elemento = Elemento::pluck('nombre_elemento', 'id');
         $vehiculo = Vehiculo::pluck('placa', 'id');
         $usuario = Usuario::pluck('nombre_usuario', 'id');
-
-        return view('multa.edit', compact('multa','vehiculo','elemento','usuario'));
+        $persona = Persona::pluck('nombre', 'id');
+        return view('multa.edit', compact('multa','vehiculo','elemento','usuario','persona'));
     }
 
     /**

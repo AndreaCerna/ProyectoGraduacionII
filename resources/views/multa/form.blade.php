@@ -27,14 +27,9 @@
             {!! $errors->first('monto_multa', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Conductor') }}
-            {{ Form::text('Conductor', $multa->Conductor, ['class' => 'form-control' . ($errors->has('Conductor') ? ' is-invalid' : ''), 'placeholder' => 'Conductor']) }}
-            {!! $errors->first('Conductor', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('licencia_conducir') }}
-            {{ Form::text('licencia_conducir', $multa->licencia_conducir, ['class' => 'form-control' . ($errors->has('licencia_conducir') ? ' is-invalid' : ''), 'placeholder' => 'Licencia Conducir']) }}
-            {!! $errors->first('licencia_conducir', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('personas_id') }}
+            {{ Form::select('personas_id', $persona,$multa->personas_id, ['class' => 'form-control' . ($errors->has('personas_id') ? ' is-invalid' : ''), 'placeholder' => 'Conductor']) }}
+            {!! $errors->first('personas_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('elementos_id') }}

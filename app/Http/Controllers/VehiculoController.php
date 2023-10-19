@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Multa;
+use App\Models\TipoPlaca;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
@@ -19,8 +21,8 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculos = Vehiculo::paginate();
-
-        return view('vehiculo.index', compact('vehiculos'))
+        $TipoPlacas= TipoPlaca::pluck('tipo', 'id');
+        return view('vehiculo.index', compact('vehiculos','TipoPlacas'))
             ->with('i', (request()->input('page', 1) - 1) * $vehiculos->perPage());
     }
 
@@ -32,7 +34,8 @@ class VehiculoController extends Controller
     public function create()
     {
         $vehiculo = new Vehiculo();
-        return view('vehiculo.create', compact('vehiculo'));
+        $tipo = TipoPlaca::pluck('tipo', 'id');
+        return view('vehiculo.create', compact('vehiculo','tipo'));
     }
 
     /**
@@ -106,4 +109,28 @@ class VehiculoController extends Controller
         return redirect()->route('vehiculos.index')
             ->with('success', 'Vehiculo deleted successfully');
     }
+
+    public function buscar()
+    {
+        $tiposPlacas = TipoPlaca::all();
+        return view('vehiculo.buscar',compact('tiposPlacas'));
+    }
+    public function resultados(Request $request)
+    {
+
+        $tipoPlacaId = $request->input('tipo_placa');
+        $numeroPlaca = $request->input('numero_placa');
+
+        $vehiculos = Vehiculo::where('tipo_placas_id', $tipoPlacaId)
+            ->where('placa', $numeroPlaca)
+            ->get();
+        $tiposPlacas = TipoPlaca::all();
+        $vehiculoIds = $vehiculos->pluck('id');
+        $multas = Multa::whereIn('vehiculos_id', $vehiculoIds)->get();
+
+        return view('vehiculo.buscar', compact('vehiculos', 'tiposPlacas','multas'));
+    }
+
+
+
 }

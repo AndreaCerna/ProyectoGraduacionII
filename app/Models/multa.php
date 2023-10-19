@@ -13,8 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $fecha
  * @property $articulo
  * @property $monto_multa
- * @property $Conductor
- * @property $licencia_conducir
+ * @property $personas_id
  * @property $created_at
  * @property $updated_at
  * @property $elementos_id
@@ -36,8 +35,7 @@ class Multa extends Model
 		'fecha' => 'required',
 		'articulo' => 'required',
 		'monto_multa' => 'required',
-		'Conductor' => 'required',
-		'licencia_conducir' => 'required',
+		'personas_id' => 'required',
 		'elementos_id' => 'required',
 		'vehiculos_id' => 'required',
 		'usuarios_id' => 'required',
@@ -50,7 +48,7 @@ class Multa extends Model
      *
      * @var array
      */
-    protected $fillable = ['serie','lugar','fecha','articulo','monto_multa','Conductor','licencia_conducir','elementos_id','vehiculos_id','usuarios_id'];
+    protected $fillable = ['serie','lugar','fecha','articulo','monto_multa','personas_id','elementos_id','vehiculos_id','usuarios_id'];
 
 
     /**
@@ -75,6 +73,10 @@ class Multa extends Model
     public function vehiculo()
     {
         return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculos_id');
+    }
+    public function persona()
+    {
+        return $this->hasOne('App\Models\persona', 'id', 'personas_id');
     }
 
 

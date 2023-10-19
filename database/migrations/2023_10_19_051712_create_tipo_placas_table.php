@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMultasTable extends Migration
+class CreateTipoPlacasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateMultasTable extends Migration
      */
     public function up()
     {
-        Schema::create('multas', function (Blueprint $table) {
+        Schema::create('tipo_placas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('serie');
-            $table->string('lugar');
-            $table->date('fecha');
-            $table->string('articulo');
-            $table->string('monto_multa');
+            $table->string('tipo');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateMultasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('multas');
+        Schema::dropIfExists('tipo_placas');
     }
 }

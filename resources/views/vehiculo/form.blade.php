@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('placa') }}
             {{ Form::text('placa', $vehiculo->placa, ['class' => 'form-control' . ($errors->has('placa') ? ' is-invalid' : ''), 'placeholder' => 'Placa']) }}
@@ -25,6 +25,11 @@
             {{ Form::label('propietario') }}
             {{ Form::text('propietario', $vehiculo->propietario, ['class' => 'form-control' . ($errors->has('propietario') ? ' is-invalid' : ''), 'placeholder' => 'Propietario']) }}
             {!! $errors->first('propietario', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('tipo_placas_id') }}
+            {{ Form::select('tipo_placas_id', $tipo,$vehiculo->tipo_placas_id, ['class' => 'form-control' . ($errors->has('tipo_placas_id') ? ' is-invalid' : ''), 'placeholder' => 'tipo_placas_id']) }}
+            {!! $errors->first('tipo_placas_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>

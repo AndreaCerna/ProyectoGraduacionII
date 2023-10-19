@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Multa
+    Persona
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Multa') }}
+                                {{ __('Persona') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('multas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('personas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,38 +36,29 @@
                                     <tr>
                                         <th>No</th>
 
-										<th>Serie</th>
-										<th>Lugar</th>
-										<th>Fecha</th>
-										<th>Articulo</th>
-										<th>Monto Multa</th>
-										<th>Conductor</th>
-										<th>Elemento</th>
-										<th>Vehiculo</th>
-										<th>Usuario</th>
+                                        <th>dpi</th>
+										<th>Nombre</th>
+										<th>Licencia</th>
+										<th>Direccion</th>
+
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($multas as $multa)
+                                    @foreach ($personas as $persona)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $multa->serie }}</td>
-											<td>{{ $multa->lugar }}</td>
-											<td>{{ $multa->fecha }}</td>
-											<td>{{ $multa->articulo }}</td>
-											<td>{{ $multa->monto_multa }}</td>
-											<td>{{ $multa->persona->nombre }}</td>
-											<td>{{ $multa->elemento->nombre_elemento}}</td>
-											<td>{{ $multa->vehiculo->placa }}</td>
-											<td>{{ $multa->usuario->nombre_usuario }}</td>
+                                            <td>{{ $persona->dpi }}</td>
+											<td>{{ $persona->nombre }}</td>
+											<td>{{ $persona->licencia }}</td>
+											<td>{{ $persona->direccion }}</td>
 
                                             <td>
-                                                <form action="{{ route('multas.destroy',$multa->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('multas.show',$multa->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('multas.edit',$multa->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('personas.destroy',$persona->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('personas.show',$persona->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('personas.edit',$persona->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -80,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $multas->links() !!}
+                {!! $personas->links() !!}
             </div>
         </div>
     </div>
