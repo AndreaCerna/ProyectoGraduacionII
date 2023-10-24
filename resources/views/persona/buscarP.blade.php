@@ -13,6 +13,9 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <h3>Buscar Personas</h3>
                         </div>
+                        <div class="float-right">
+                            <a class="btn btn-warning" href="#"> {{ __('Regresar') }}</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="GET" action="{{ route('resultadoss') }}">

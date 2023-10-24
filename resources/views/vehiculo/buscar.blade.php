@@ -14,6 +14,13 @@
                             <h3>Buscar Vehiculo</h3>
                         </div>
                     </div>
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="card-body">
                         <form method="GET" action="{{ route('resultados') }}">
 
@@ -98,7 +105,11 @@
                                                 </tr>
                                             @endforeach
                                             </tbody>
+
                                         </table>
+                                        <a href="{{ url('/pago') }} " type="submit" role="button" class="btn btn-success offset-3">
+                                            <i class="fas fa-plus"> Pagar</i>
+                                        </a>
                                     @else
                                         <p>No se encontraron multas asociadas a este vehículo.</p>
                                     @endif
@@ -107,6 +118,7 @@
                                 @endif
                             </div>
                         @endif
+
 
                     </div>
             </div>

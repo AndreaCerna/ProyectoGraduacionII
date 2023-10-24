@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $tipoPlaca->name ?? "{{ __('Show') Tipo Placa" }}
+    {{ $tipoPlaca->name ?? "{{ __('Ver') Tipo Placa" }}
 @endsection
 
 @section('content')
@@ -11,15 +11,15 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Tipo Placa</span>
+                            <span class="card-title">{{ __('Ver') }} Tipo Placa</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('tipo-placas.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('tipo-placas.index') }}"> {{ __('Regresar') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Tipo:</strong>
                             {{ $tipoPlaca->tipo }}

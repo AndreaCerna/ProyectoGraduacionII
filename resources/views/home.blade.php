@@ -1,76 +1,130 @@
 @extends('layouts.app')
 
 @section('content')
-    <body>
-    <h1 class="j">Benvenidos</h1>
-
-    <div class="galeria" >
-        <a href="{{url('/cargos')}}">
-            <div class="piee">
-                <h1 class="jj">Cargos</h1>
-            </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/elementos')}}">
-            <div class="pie">
-                <h1 class="j">Elementos</h1>
-            </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/multas')}}">
-            <div class="pie">
-                <h1 class="jjj">Multas</h1>
-            </div>
-        </a>
+    <div class="container text-center">
+        <h1 class="text-primary-emphasis">Bienvenido al Sistema de Multas de la Policía Municipal de Tránsito de Puerto Barrios, Izabal</h1>
     </div>
 
-    <div class="galeria">
-        <a href="{{url('/usuarios')}}">
-            <div class="pi">
-                <h1 class="c">Usuarios</h1>
+    <br>
+
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .col-md-2 {
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .col-md-2:hover {
+            background-color: #052c65;
+        }
+    </style>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="{{ url('/cargos') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">Registrar Cargos</h3>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
+
+            <div class="col-md-2">
+                <a href="{{ url('/elementos') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Registrar Elementos</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a href="{{ url('/multas') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">Registrar Multas</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a href="{{ url('/usuarios') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">Registrar Usuarios</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a href="{{ url('/vehiculos') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Registrar Vehículos</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-2">
+                <a href="{{ url('/personas') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Registrar Personas</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+        </div>
     </div>
-    <div class="galeria">
-        <a href="{{url('/vehiculos')}}">
-            <div class="pi">
-                <h1 class="c">Vehiculos</h1>
+
+    <br>
+    <br>
+    <!-- IMAGENES -->
+    <div class="row row-cols-4 row-cols-md-4 g-5">
+        <div class="col">
+            <div class="card">
+                <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/09/PORTADA-NOTAS-1.jpg" class="card-img-top" alt="...">
             </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/tipo-placas')}}">
-            <div class="pi">
-                <h1 class="c">Tipo placas</h1>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/06/PORTADA-2-1.jpg" class="card-img-top" alt="...">
             </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/buscar')}}">
-            <div class="pi">
-                <h1 class="c">Buscar</h1>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://izabaltv.com/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-07-at-2.49.49-PM-1024x683.jpeg" class="card-img-top" alt="...">
             </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/personas')}}">
-            <div class="pi">
-                <h1 class="c">Personas</h1>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://izabaltv.com/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-07-at-2.50.16-PM.jpeg" class="card-img-top" alt="...">
             </div>
-        </a>
-    </div>
-    <div class="galeria">
-        <a href="{{url('/buscarP')}}">
-            <div class="pi">
-                <h1 class="c">Buscar Personas</h1>
-            </div>
-        </a>
+        </div>
     </div>
 
 
-    </body>
 
-    </html>
+
 @endsection
+
+
+

@@ -19,9 +19,11 @@ use App\Http\Controllers\PersonaController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Auth::routes();
 
@@ -40,6 +42,11 @@ Route::resource('vehiculos', VehiculoController::class);
 Route::resource('multas', MultaController::class);
 Route::resource('tipo-placas', TipoPlacaController::class);
 Route::resource('personas', PersonaController::class);
+
+Route::get('/pago', [VehiculoController::class, 'pago']);
+Route::get('/pago/pago', [VehiculoController::class, 'procesar_pago'])->name('procesar_pago');
+
+Route::get('/welcome', [VehiculoController::class, 'welcome'])->name('welcome');;
 
 
 

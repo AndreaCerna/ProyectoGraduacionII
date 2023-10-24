@@ -131,6 +131,18 @@ class VehiculoController extends Controller
         return view('vehiculo.buscar', compact('vehiculos', 'tiposPlacas','multas'));
     }
 
+    public function pago()
+    {
+        return view('pago.pago');
+    }
 
+    public function procesar_pago()
+    {
+        return redirect()->route('buscar')->with('success', 'Pago exitoso');
+    }
 
+    public function welcome()
+    {
+        return view('welcome');
+    }
 }

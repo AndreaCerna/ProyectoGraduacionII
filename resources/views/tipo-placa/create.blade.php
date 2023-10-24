@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Tipo Placa
+    {{ __('Registrar') }} Tipo Placa
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Tipo Placa</span>
+                        <span class="card-title">{{ __('Registrar') }} Tipo Placa</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('tipo-placas.store') }}"  role="form" enctype="multipart/form-data">

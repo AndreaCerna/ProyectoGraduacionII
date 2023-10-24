@@ -18,9 +18,15 @@
 
                              <div class="float-right">
                                 <a href="{{ route('tipo-placas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Registrar Placa') }}
                                 </a>
                               </div>
+
+                            <div class="float-right">
+                                <a href="{{ route('home') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
+                                    {{ __('Regresar al Menú') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,7 +41,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Tipo</th>
 										<th>Descripcion</th>
 
@@ -46,17 +52,17 @@
                                     @foreach ($tipoPlacas as $tipoPlaca)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $tipoPlaca->tipo }}</td>
 											<td>{{ $tipoPlaca->descripcion }}</td>
 
                                             <td>
                                                 <form action="{{ route('tipo-placas.destroy',$tipoPlaca->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo-placas.show',$tipoPlaca->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('tipo-placas.edit',$tipoPlaca->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo-placas.show',$tipoPlaca->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tipo-placas.edit',$tipoPlaca->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
