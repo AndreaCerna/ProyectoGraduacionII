@@ -2,9 +2,17 @@
 
 @section('content')
 
-<div class="container">
-    <h1>Opción de Pago con Tarjeta</h1>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
+<div class="container text-center">
+    <h1>Pago con Tarjeta</h1>
+</div>
+
+<div class="container align-content-center mt-5">
     <form action="{{route('procesar_pago')}}" method="GET">
         <div class="form-group">
             <label for="nombre">Nombre en la Tarjeta:</label>
@@ -22,8 +30,12 @@
             <label for="cvv">CVV:</label>
             <input type="text" class="form-control" id="cvv" name="cvv" required>
         </div>
-        <button type="submit" class="btn btn-primary">Pagar</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Pagar</button>
+            <a class="btn btn-warning ml-2" href="{{ route('welcome') }}"> {{ __('Cancelar') }}</a>
+        </div>
     </form>
 </div>
+
 
 @endsection

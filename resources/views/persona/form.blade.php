@@ -24,5 +24,6 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a class="btn btn-warning" href="{{ route('personas.index') }}"> {{ __('Cancelar') }}</a>
     </div>
 </div>

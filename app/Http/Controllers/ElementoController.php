@@ -51,7 +51,7 @@ class ElementoController extends Controller
         $elemento = Elemento::create($request->all());
 
         return redirect()->route('elementos.index')
-            ->with('success', 'Elemento created successfully.');
+            ->with('success', 'Elemento creado exitosamente.');
     }
 
     /**
@@ -96,7 +96,7 @@ class ElementoController extends Controller
         $elemento->update($request->all());
 
         return redirect()->route('elementos.index')
-            ->with('success', 'Elemento updated successfully');
+            ->with('success', 'Elemento editado exitosamente');
     }
 
     /**
@@ -109,6 +109,6 @@ class ElementoController extends Controller
         $elemento = Elemento::find($id)->delete();
 
         return redirect()->route('elementos.index')
-            ->with('success', 'Elemento deleted successfully');
+            ->with('success', 'Elemento eliminado exitosamente');
     }
 }

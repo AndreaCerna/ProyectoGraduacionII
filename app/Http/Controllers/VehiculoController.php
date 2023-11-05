@@ -51,7 +51,7 @@ class VehiculoController extends Controller
         $vehiculo = Vehiculo::create($request->all());
 
         return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehiculo created successfully.');
+            ->with('success', 'Vehiculo creado exitosamente!');
     }
 
     /**
@@ -94,7 +94,7 @@ class VehiculoController extends Controller
         $vehiculo->update($request->all());
 
         return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehiculo updated successfully');
+            ->with('success', 'Vehiculo editado exitosamente!');
     }
 
     /**
@@ -107,7 +107,7 @@ class VehiculoController extends Controller
         $vehiculo = Vehiculo::find($id)->delete();
 
         return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehiculo deleted successfully');
+            ->with('success', 'Vehiculo eliminado exitosamente!');
     }
 
     public function buscar()
@@ -138,7 +138,7 @@ class VehiculoController extends Controller
 
     public function procesar_pago()
     {
-        return redirect()->route('buscar')->with('success', 'Pago exitoso');
+        return redirect()->route('pago')->with('success', 'Pago realido con éxito!');
     }
 
     public function welcome()

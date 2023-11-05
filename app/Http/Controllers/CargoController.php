@@ -48,7 +48,7 @@ class CargoController extends Controller
         $cargo = Cargo::create($request->all());
 
         return redirect()->route('cargos.index')
-            ->with('success', 'Cargo created successfully.');
+            ->with('success', 'Cargo creado exitosamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class CargoController extends Controller
         $cargo->update($request->all());
 
         return redirect()->route('cargos.index')
-            ->with('success', 'Cargo updated successfully');
+            ->with('success', 'Cargo editado exitosamente');
     }
 
     /**
@@ -104,6 +104,6 @@ class CargoController extends Controller
         $cargo = Cargo::find($id)->delete();
 
         return redirect()->route('cargos.index')
-            ->with('success', 'Cargo deleted successfully');
+            ->with('success', 'Cargo eliminado exitosamente');
     }
 }

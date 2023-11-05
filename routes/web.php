@@ -35,6 +35,7 @@ Route::get('/buscarP', [PersonaController::class, 'buscarP'])->name('buscarP');
 Route::get('/resultadoss', [PersonaController::class, 'resultadoss'])->name('resultadoss');
 
 
+
 Route::resource('elementos', ElementoController::class);
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('cargos', CargoController::class);
@@ -43,10 +44,10 @@ Route::resource('multas', MultaController::class);
 Route::resource('tipo-placas', TipoPlacaController::class);
 Route::resource('personas', PersonaController::class);
 
-Route::get('/pago', [VehiculoController::class, 'pago']);
+Route::get('/pago', [VehiculoController::class, 'pago'])->name('pago');
 Route::get('/pago/pago', [VehiculoController::class, 'procesar_pago'])->name('procesar_pago');
 
-Route::get('/welcome', [VehiculoController::class, 'welcome'])->name('welcome');;
+Route::get('/welcome', [VehiculoController::class, 'welcome'])->name('welcome');
 
 
 

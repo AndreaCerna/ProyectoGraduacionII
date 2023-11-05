@@ -13,9 +13,6 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <h3>Buscar Personas</h3>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-warning" href="#"> {{ __('Regresar') }}</a>
-                        </div>
                     </div>
                     <div class="card-body">
                         <form method="GET" action="{{ route('resultadoss') }}">
@@ -29,6 +26,7 @@
                             <button type="submit" class="btn btn-primary offset-3">
                                 <i class="fas fa-plus"> Buscar</i>
                             </button>
+                            <a class="btn btn-warning ml-2" href="{{ route('welcome') }}"> {{ __('Cancelar') }}</a>
                         </form>
 
                         @if(isset($personas))
@@ -83,6 +81,9 @@
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        <a href="{{ url('/pago') }} " type="submit" role="button" class="btn btn-success offset-3">
+                                            <i class="fas fa-plus"> Pagar</i>
+                                        </a>
                                     @else
                                         <p>No se encontraron multas asociadas a este vehículo.</p>
                                     @endif

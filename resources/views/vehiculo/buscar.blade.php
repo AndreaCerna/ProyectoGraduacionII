@@ -44,6 +44,7 @@
                             <button type="submit" class="btn btn-primary offset-3">
                                 <i class="fas fa-plus"> Buscar</i>
                             </button>
+                            <a class="btn btn-warning ml-2" href="{{ route('welcome') }}"> {{ __('Cancelar') }}</a>
                         </form>
 
                         @if(isset($vehiculos))

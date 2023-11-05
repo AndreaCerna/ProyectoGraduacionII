@@ -5,38 +5,10 @@
     <!-- Contenido principal de la página -->
     <div class="container text-center">
         <br>
-        <h1 class="text-primary-emphasis">POLICÍA MUNICIPAL DE TRÁNSITO</h1>
+        <h1 class="text-primary-emphasis">POLICÍA MUNICIPAL DE TRÁNSITO DE PUERTO BARRIOS, IZABAL</h1>
         <br>
-        <h2 class="text-primary-emphasis">PUERTO BARRIOS</h2>
     </div>
 
-    <!-- Carousel de la Pagina Principal -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/03/IMG_3489.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/10/PORTADA-8-1-990x660.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/05/Screenshot_11-1.png" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
     <div class="container text-center">
         <br>
         <h2 class="text-primary-emphasis">CONSULTA DE MULTAS</h2>
@@ -60,6 +32,32 @@
                 <h3 class="text-primary-emphasis">Consulta Personas</h3>
                 <div class="container">
                     <a href="{{url('/buscarP')}}" class="btn btn-primary">Realizar Consulta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel de la Pagina Principal -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/03/IMG_3489.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/10/PORTADA-8-1-990x660.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://munipuertobarrios.gob.gt/wp-content/uploads/2018/05/Screenshot_11-1.png" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

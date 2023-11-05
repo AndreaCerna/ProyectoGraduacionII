@@ -15,5 +15,6 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a class="btn btn-warning ml-2" href="{{ route('elementos.index') }}"> {{ __('Cancelar') }}</a>
     </div>
 </div>
