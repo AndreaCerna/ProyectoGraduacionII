@@ -90,6 +90,7 @@
                                                 <th>Fecha</th>
                                                 <th>Articulo</th>
                                                 <th>Monto de la Multa</th>
+                                                <th>Estado</th>
                                                 <!-- Agrega más columnas según tus necesidades -->
                                             </tr>
                                             </thead>
@@ -101,16 +102,18 @@
                                                     <td>{{ $multa->fecha }}</td>
                                                     <td>{{ $multa->articulo }}</td>
                                                     <td>{{ $multa->monto_multa }}</td>
-
-                                                    <!-- Agrega más detalles de la multa según tus necesidades -->
+                                                    <td>{{ $estados->where('id', $multa->estados_id)->first()->estado }}</td>
                                                 </tr>
+
                                             @endforeach
                                             </tbody>
 
                                         </table>
-                                        <a href="{{ url('/pago') }} " type="submit" role="button" class="btn btn-success offset-3">
-                                            <i class="fas fa-plus"> Pagar</i>
-                                        </a>
+                                        @if ($multa->estados_id == 1)
+                                            <a href="{{ route('pago', ['multa_id' => $multa->id]) }}" class="btn btn-success offset-3">
+                                                <i class="fas fa-plus"> Pagar</i>
+                                            </a>
+                                        @endif
                                     @else
                                         <p>No se encontraron multas asociadas a este vehículo.</p>
                                     @endif

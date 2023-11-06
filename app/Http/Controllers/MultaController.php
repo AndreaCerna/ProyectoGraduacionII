@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\estado;
 use App\Models\Multa;
 use App\Models\Elemento;
 use App\Models\Persona;
@@ -27,7 +28,20 @@ class MultaController extends Controller
         $vehiculo = Vehiculo::pluck('placa', 'id');
         $usuario = Usuario::pluck('nombre_usuario', 'id');
         $persona = Persona::pluck('nombre', 'id');
-        return view('multa.index', compact('multas','elemento','vehiculo','usuario','persona'))
+        $estado = estado::pluck('estado', 'id');
+        return view('multa.index', compact('multas','elemento','vehiculo','usuario','persona','estado'))
+            ->with('i', (request()->input('page', 1) - 1) * $multas->perPage());
+    }
+    public function multaspagadas()
+    {
+        $estados = [2];
+        $multas = Multa::whereIn('estados_id', $estados)->paginate();
+        $elemento = Elemento::pluck('nombre_elemento', 'id');
+        $vehiculo = Vehiculo::pluck('placa', 'id');
+        $usuario = Usuario::pluck('nombre_usuario', 'id');
+        $persona = Persona::pluck('nombre', 'id');
+        $estados = estado::pluck('estado', 'id');
+        return view('multa.multaspagadas', compact('multas','elemento','vehiculo','usuario','persona','estados'))
             ->with('i', (request()->input('page', 1) - 1) * $multas->perPage());
     }
 

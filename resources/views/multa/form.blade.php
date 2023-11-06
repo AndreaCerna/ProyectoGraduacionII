@@ -46,6 +46,10 @@
             {{ Form::select('usuarios_id', $usuario,$multa->usuarios_id, ['class' => 'form-control' . ($errors->has('usuarios_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuarios Id']) }}
             {!! $errors->first('usuarios_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::hidden('estados_id', 1) }}
+            {!! $errors->first('estados_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">

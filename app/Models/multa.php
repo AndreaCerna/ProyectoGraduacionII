@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $elementos_id
  * @property $vehiculos_id
  * @property $usuarios_id
+ * @property $estados_id
  *
  * @property Elemento $elemento
  * @property Usuario $usuario
@@ -39,6 +40,7 @@ class Multa extends Model
 		'elementos_id' => 'required',
 		'vehiculos_id' => 'required',
 		'usuarios_id' => 'required',
+        'estados_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -48,7 +50,7 @@ class Multa extends Model
      *
      * @var array
      */
-    protected $fillable = ['serie','lugar','fecha','articulo','monto_multa','personas_id','elementos_id','vehiculos_id','usuarios_id'];
+    protected $fillable = ['serie','lugar','fecha','articulo','monto_multa','personas_id','elementos_id','vehiculos_id','usuarios_id','estados_id'];
 
 
     /**

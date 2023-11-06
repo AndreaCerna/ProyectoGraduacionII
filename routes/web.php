@@ -31,9 +31,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/buscar', [vehiculoController::class, 'buscar'])->name('buscar');
 Route::get('/resultados', [vehiculoController::class, 'resultados'])->name('resultados');
 
+
 Route::get('/buscarP', [PersonaController::class, 'buscarP'])->name('buscarP');
 Route::get('/resultadoss', [PersonaController::class, 'resultadoss'])->name('resultadoss');
-
+Route::get('/multaspagadas', [MultaController::class,'multaspagadas'])->name('multaspagadas');
 
 
 Route::resource('elementos', ElementoController::class);
@@ -44,10 +45,15 @@ Route::resource('multas', MultaController::class);
 Route::resource('tipo-placas', TipoPlacaController::class);
 Route::resource('personas', PersonaController::class);
 
+
+
+Route::get('/pago/{multa_id}', 'VehiculoController@pago')->name('pago');
 Route::get('/pago', [VehiculoController::class, 'pago'])->name('pago');
-Route::get('/pago/pago', [VehiculoController::class, 'procesar_pago'])->name('procesar_pago');
+Route::post('/pago/procesar', [VehiculoController::class, 'procesar_pago'])->name('procesar_pago');
+
 
 Route::get('/welcome', [VehiculoController::class, 'welcome'])->name('welcome');
+
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\estado;
 use App\Models\Multa;
 use App\Models\TipoPlaca;
 use App\Models\Vehiculo;
@@ -125,20 +126,35 @@ class VehiculoController extends Controller
             ->where('placa', $numeroPlaca)
             ->get();
         $tiposPlacas = TipoPlaca::all();
+
         $vehiculoIds = $vehiculos->pluck('id');
         $multas = Multa::whereIn('vehiculos_id', $vehiculoIds)->get();
 
-        return view('vehiculo.buscar', compact('vehiculos', 'tiposPlacas','multas'));
+        $estados = Estado::all();
+        return view('vehiculo.buscar', compact('vehiculos', 'tiposPlacas','multas','estados'));
     }
 
-    public function pago()
+    public function pago(Request $request)
     {
-        return view('pago.pago');
+        $multa_id = $request->input('multa_id');
+        $multa = Multa::find($multa_id);
+        if (!$multa) {
+            return redirect()->route('pago', ['multa_id' => $multa_id])->with('success', 'Pago realizado con éxito!');
+        }
+
+        return view('pago.pago', compact('multa'));
     }
 
-    public function procesar_pago()
+    public function procesar_pago(Request $request)
     {
-        return redirect()->route('pago')->with('success', 'Pago realido con éxito!');
+        $multaId = $request->input('multa_id'); // Asegúrate de tener un campo oculto en el formulario para almacenar el ID de la multa
+        $multa = Multa::find($multaId);
+
+        if ($multa) {
+            $multa->update(['estados_id' => 2]);
+        }
+
+        return redirect()->route('pago', ['multa_id' => $multaId])->with('success', 'Pago realizado con éxito!');
     }
 
     public function welcome()

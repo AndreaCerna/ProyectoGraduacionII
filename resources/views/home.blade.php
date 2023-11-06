@@ -89,6 +89,15 @@
                     </div>
                 </a>
             </div>
+            <div class="col-md-2">
+                <a href="{{ url('/multaspagadas') }}" class="text-decoration-none">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Multas Pagadas</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
 
 

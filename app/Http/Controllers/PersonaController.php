@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\estado;
 use App\Models\Multa;
 use App\Models\Persona;
 use Illuminate\Http\Request;
@@ -123,8 +124,9 @@ class PersonaController extends Controller
 
         $personaIds = $personas->pluck('id');
         $multas = Multa::whereIn('personas_id', $personaIds)->get();
+        $estados = Estado::all();
 
-        return view('persona.buscarP', compact('personas','multas'));
+        return view('persona.buscarP', compact('personas','multas','estados'));
     }
 
 
