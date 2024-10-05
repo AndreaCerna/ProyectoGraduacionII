@@ -6,6 +6,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Página Principal</title>
+    <!-- Cargar jQuery antes que Select2 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Usa esta versión más reciente -->
+    
+    <!-- Archivos de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Otras librerías JavaScript (asegúrate de que jQuery ya esté cargado) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Archivos de Bootstrap CSS y JavaScript -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <style>
         body {
@@ -22,6 +38,7 @@
             background-attachment: fixed;
         }
     </style>
+    
 </head>
 </head>
 
@@ -81,6 +98,8 @@
         @yield('content')
     </main>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 </body>
 </html>
 
