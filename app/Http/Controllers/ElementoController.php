@@ -23,7 +23,7 @@ class ElementoController extends Controller
         $cargo = cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.index', compact('elementos','cargo'))
-            ->with('i', (request()->input('page', 1) - 1) * $elemento->perPage());
+            ->with('i', (request()->input('page', 1) - 1) * $elementos->perPage());
     }
 
     /**
