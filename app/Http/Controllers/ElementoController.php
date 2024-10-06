@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cargo;
-use App\Models\Elemento;
+use App\Models\cargo;
+use App\Models\elemento;
 use Illuminate\Http\Request;
 
 /**
@@ -20,7 +20,7 @@ class ElementoController extends Controller
     public function index()
     {
         $elemento = elemento::paginate();
-        $cargo = Cargo::pluck('nombre_cargo', 'id');
+        $cargo = cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.index', compact('elementos','cargo'))
             ->with('i', (request()->input('page', 1) - 1) * $elemento->perPage());
@@ -34,7 +34,7 @@ class ElementoController extends Controller
     public function create()
     {
         $elemento = new elemento();
-        $cargo = Cargo::pluck('nombre_cargo', 'id');
+        $cargo = cargo::pluck('nombre_cargo', 'id');
         return view('elemento.create', compact('elemento','cargo'));
     }
 
@@ -46,9 +46,9 @@ class ElementoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Elemento::$rules);
+        request()->validate(elemento::$rules);
 
-        $elemento = Elemento::create($request->all());
+        $elemento = elemento::create($request->all());
 
         return redirect()->route('elementos.index')
             ->with('success', 'Elemento creado exitosamente.');
@@ -62,8 +62,8 @@ class ElementoController extends Controller
      */
     public function show($id)
     {
-        $elemento = Elemento::find($id);
-        $cargo = Cargo::pluck('nombre_cargo', 'id');
+        $elemento = elemento::find($id);
+        $cargo = cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.show', compact('elemento','cargo'));
     }
@@ -76,8 +76,8 @@ class ElementoController extends Controller
      */
     public function edit($id)
     {
-        $elemento = Elemento::find($id);
-        $cargo = Cargo::pluck('nombre_cargo', 'id');
+        $elemento = elemento::find($id);
+        $cargo = cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.edit', compact('elemento','cargo'));
     }
@@ -89,9 +89,9 @@ class ElementoController extends Controller
      * @param  Elemento $elemento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Elemento $elemento)
+    public function update(Request $request, elemento $elemento)
     {
-        request()->validate(Elemento::$rules);
+        request()->validate(elemento::$rules);
 
         $elemento->update($request->all());
 
@@ -106,7 +106,7 @@ class ElementoController extends Controller
      */
     public function destroy($id)
     {
-        $elemento = Elemento::find($id)->delete();
+        $elemento = elemento::find($id)->delete();
 
         return redirect()->route('elementos.index')
             ->with('success', 'Elemento eliminado exitosamente');
