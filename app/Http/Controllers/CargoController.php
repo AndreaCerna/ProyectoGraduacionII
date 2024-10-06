@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cargo;
+use App\Models\cargo;
 use Illuminate\Http\Request;
 
 /**
@@ -31,7 +31,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        $cargo = new Cargo();
+        $cargo = new cargo();
         return view('cargo.create', compact('cargo'));
     }
 
@@ -43,9 +43,9 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Cargo::$rules);
+        request()->validate(cargo::$rules);
 
-        $cargo = Cargo::create($request->all());
+        $cargo = cargo::create($request->all());
 
         return redirect()->route('cargos.index')
             ->with('success', 'Cargo creado exitosamente.');
@@ -59,7 +59,7 @@ class CargoController extends Controller
      */
     public function show($id)
     {
-        $cargo = Cargo::find($id);
+        $cargo = cargo::find($id);
 
         return view('cargo.show', compact('cargo'));
     }
@@ -72,7 +72,7 @@ class CargoController extends Controller
      */
     public function edit($id)
     {
-        $cargo = Cargo::find($id);
+        $cargo = cargo::find($id);
 
         return view('cargo.edit', compact('cargo'));
     }
@@ -84,9 +84,9 @@ class CargoController extends Controller
      * @param  Cargo $cargo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cargo $cargo)
+    public function update(Request $request, cargo $cargo)
     {
-        request()->validate(Cargo::$rules);
+        request()->validate(cargo::$rules);
 
         $cargo->update($request->all());
 
@@ -101,7 +101,7 @@ class CargoController extends Controller
      */
     public function destroy($id)
     {
-        $cargo = Cargo::find($id)->delete();
+        $cargo = cargo::find($id)->delete();
 
         return redirect()->route('cargos.index')
             ->with('success', 'Cargo eliminado exitosamente');
