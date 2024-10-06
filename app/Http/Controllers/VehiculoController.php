@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\estado;
-use App\Models\Multa;
+use App\Models\multa;
 use App\Models\TipoPlaca;
-use App\Models\Vehiculo;
+use App\Models\vehiculo;
 use Illuminate\Http\Request;
 
 /**
@@ -21,7 +21,7 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $vehiculos = Vehiculo::paginate();
+        $vehiculos = vehiculo::paginate();
         $TipoPlacas= TipoPlaca::pluck('tipo', 'id');
         return view('vehiculo.index', compact('vehiculos','TipoPlacas'))
             ->with('i', (request()->input('page', 1) - 1) * $vehiculos->perPage());
@@ -34,7 +34,7 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        $vehiculo = new Vehiculo();
+        $vehiculo = new vehiculo();
         $tipo = TipoPlaca::pluck('tipo', 'id');
         return view('vehiculo.create', compact('vehiculo','tipo'));
     }
@@ -47,9 +47,9 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Vehiculo::$rules);
+        request()->validate(vehiculo::$rules);
 
-        $vehiculo = Vehiculo::create($request->all());
+        $vehiculo = vehiculo::create($request->all());
 
         return redirect()->route('vehiculos.index')
             ->with('success', 'Vehiculo creado exitosamente!');
@@ -63,7 +63,7 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        $vehiculo = Vehiculo::find($id);
+        $vehiculo = vehiculo::find($id);
 
         return view('vehiculo.show', compact('vehiculo'));
     }
@@ -76,7 +76,7 @@ class VehiculoController extends Controller
      */
     public function edit($id)
     {
-        $vehiculo = Vehiculo::find($id);
+        $vehiculo = vehiculo::find($id);
 
         return view('vehiculo.edit', compact('vehiculo'));
     }
@@ -88,9 +88,9 @@ class VehiculoController extends Controller
      * @param  Vehiculo $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehiculo $vehiculo)
+    public function update(Request $request, vehiculo $vehiculo)
     {
-        request()->validate(Vehiculo::$rules);
+        request()->validate(vehiculo::$rules);
 
         $vehiculo->update($request->all());
 
@@ -105,7 +105,7 @@ class VehiculoController extends Controller
      */
     public function destroy($id)
     {
-        $vehiculo = Vehiculo::find($id)->delete();
+        $vehiculo = vehiculo::find($id)->delete();
 
         return redirect()->route('vehiculos.index')
             ->with('success', 'Vehiculo eliminado exitosamente!');
@@ -122,22 +122,22 @@ class VehiculoController extends Controller
         $tipoPlacaId = $request->input('tipo_placa');
         $numeroPlaca = $request->input('numero_placa');
 
-        $vehiculos = Vehiculo::where('tipo_placas_id', $tipoPlacaId)
+        $vehiculos = vehiculo::where('tipo_placas_id', $tipoPlacaId)
             ->where('placa', $numeroPlaca)
             ->get();
         $tiposPlacas = TipoPlaca::all();
 
         $vehiculoIds = $vehiculos->pluck('id');
-        $multas = Multa::whereIn('vehiculos_id', $vehiculoIds)->get();
+        $multas = multa::whereIn('vehiculos_id', $vehiculoIds)->get();
 
-        $estados = Estado::all();
+        $estados = estado::all();
         return view('vehiculo.buscar', compact('vehiculos', 'tiposPlacas','multas','estados'));
     }
 
     public function pago(Request $request)
     {
         $multa_id = $request->input('multa_id');
-        $multa = Multa::find($multa_id);
+        $multa = multa::find($multa_id);
         if (!$multa) {
             return redirect()->route('pago', ['multa_id' => $multa_id])->with('success', 'Pago realizado con éxito!');
         }
@@ -148,7 +148,7 @@ class VehiculoController extends Controller
     public function procesar_pago(Request $request)
     {
         $multaId = $request->input('multa_id'); // Asegúrate de tener un campo oculto en el formulario para almacenar el ID de la multa
-        $multa = Multa::find($multaId);
+        $multa = multa::find($multaId);
 
         if ($multa) {
             $multa->update(['estados_id' => 2]);
