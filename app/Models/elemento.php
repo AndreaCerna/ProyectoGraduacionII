@@ -33,7 +33,24 @@ class Elemento extends Model
      *
      * @var array
      */
+    protected $fillable = ['nombre_elemento','cargos_id'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function cargo()
+    {
+        return $this->hasOne('App\Models\Cargo', 'id', 'cargos_id');
+    }
     
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function multas()
+    {
+        return $this->hasMany('App\Models\Multa', 'elementos_id', 'id');
+    }
     
 
 }
