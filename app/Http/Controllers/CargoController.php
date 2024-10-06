@@ -18,7 +18,7 @@ class CargoController extends Controller
      */
     public function index()
     {
-        $cargos = Cargo::paginate();
+        $cargos = cargo::paginate();
 
         return view('cargo.index', compact('cargos'))
             ->with('i', (request()->input('page', 1) - 1) * $cargos->perPage());
