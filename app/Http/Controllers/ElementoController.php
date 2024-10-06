@@ -19,11 +19,11 @@ class ElementoController extends Controller
      */
     public function index()
     {
-        $elementos = elemento::paginate();
+        $elemento = elemento::paginate();
         $cargo = Cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.index', compact('elementos','cargo'))
-            ->with('i', (request()->input('page', 1) - 1) * $elementos->perPage());
+            ->with('i', (request()->input('page', 1) - 1) * $elemento->perPage());
     }
 
     /**
@@ -33,7 +33,7 @@ class ElementoController extends Controller
      */
     public function create()
     {
-        $elemento = new Elemento();
+        $elemento = new elemento();
         $cargo = Cargo::pluck('nombre_cargo', 'id');
         return view('elemento.create', compact('elemento','cargo'));
     }
