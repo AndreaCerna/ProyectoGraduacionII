@@ -19,7 +19,7 @@ class ElementoController extends Controller
      */
     public function index()
     {
-        $elemento = elemento::paginate();
+        $elementos = elemento::paginate();
         $cargo = cargo::pluck('nombre_cargo', 'id');
 
         return view('elemento.index', compact('elementos','cargo'))
